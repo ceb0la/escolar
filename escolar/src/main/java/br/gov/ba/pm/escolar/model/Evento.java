@@ -1,11 +1,14 @@
 package br.gov.ba.pm.escolar.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Evento implements Serializable{
@@ -20,9 +23,11 @@ public class Evento implements Serializable{
 	
 	private String local;
 	
-	private String data;
+	@Temporal(value=TemporalType.DATE)
+	private Date data;
 	
-	private String horario;
+	@Temporal(value=TemporalType.TIME)
+	private Date horario;
 	
 	public Long getId() {
 		return id;
@@ -42,16 +47,16 @@ public class Evento implements Serializable{
 	public void setLocal(String local) {
 		this.local = local;
 	}
-	public String getData() {
+	public Date getData() {
 		return data;
 	}
-	public void setData(String data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
-	public String getHorario() {
+	public Date getHorario() {
 		return horario;
 	}
-	public void setHorario(String horario) {
+	public void setHorario(Date horario) {
 		this.horario = horario;
 	}
 	

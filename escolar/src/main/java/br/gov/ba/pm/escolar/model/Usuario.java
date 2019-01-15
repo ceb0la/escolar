@@ -4,6 +4,8 @@ import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -18,6 +20,9 @@ public class Usuario implements UserDetails{
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
+	
 	private String login;
 	
 	private String nomeCompleto;
@@ -25,10 +30,17 @@ public class Usuario implements UserDetails{
 	private String senha;
 	
 	@ManyToMany
-	@JoinTable(name="usuarios_roles",joinColumns = @JoinColumn(name= "usuario_id", referencedColumnName ="login"),
-									 inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role"))
+	@JoinTable(name="usuarios_roles",joinColumns = @JoinColumn(name= "usuario_id", referencedColumnName ="login"),inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role"))
 	private List<Role> roles;
+	
+	public Long getId() {
+		return id;
+	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 	public String getLogin() {
 		return login;
 	}
@@ -95,5 +107,4 @@ public class Usuario implements UserDetails{
 	public boolean isEnabled() {
 		return true;
 	}
-	
 }

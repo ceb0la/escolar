@@ -1,11 +1,14 @@
 package br.gov.ba.pm.escolar.model;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Frequencia implements Serializable{
@@ -13,25 +16,27 @@ public class Frequencia implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	private Integer Long;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	
-	@Column
-	private Calendar data;
+	@Temporal(value=TemporalType.DATE)
+	private Date data;
 
-	public Integer getLong() {
-		return Long;
+	public Long getId() {
+		return id;
 	}
 
-	public void setLong(Integer l) {
-		Long = l;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public Calendar getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(Calendar data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
-	
+
+		
 }
