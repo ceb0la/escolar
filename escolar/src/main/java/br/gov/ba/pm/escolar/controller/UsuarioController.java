@@ -12,16 +12,16 @@ import br.gov.ba.pm.escolar.repository.UsuarioRepository;
 public class UsuarioController {
 	
 	@Autowired
-	private UsuarioRepository ur;
+	private UsuarioRepository objetoRepository;
 	
-	@RequestMapping(value="/cadastrarUsuario", method=RequestMethod.GET)
+	@RequestMapping(value="/insertUsuario", method=RequestMethod.GET)
 	public String form() {
-		return "usuario/formUsuario";
+		return "usuario/insertUsuario";
 	}
 	
-	@RequestMapping(value="/cadastrarUsuario", method=RequestMethod.POST)
+	@RequestMapping(value="/insertUsuario", method=RequestMethod.POST)
 	public String form(Usuario usuario) {
-		ur.save(usuario);
-		return "redirect:/cadastrarUsuario";
+		objetoRepository.save(usuario);
+		return "redirect:/insertUsuario";
 	}
 }

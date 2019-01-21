@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import br.gov.ba.pm.escolar.model.Evento;
 import br.gov.ba.pm.escolar.repository.EventoRepository;
@@ -12,16 +13,29 @@ import br.gov.ba.pm.escolar.repository.EventoRepository;
 public class EventoController {
 	
 	@Autowired
-	private EventoRepository er;
+	private EventoRepository objetoRepository;
 	
-	@RequestMapping(value="/cadastrarEvento", method=RequestMethod.GET)
+	@RequestMapping(value="/insertEvento", method=RequestMethod.GET)
 	public String form() {
-		return "evento/formEvento";
+		return "evento/insertEvento";
 	}
 	
-	@RequestMapping(value="/cadastrarEvento", method=RequestMethod.POST)
+	@RequestMapping(value="/listEvento", method=RequestMethod.GET)
+	public String list() {
+		return "evento/listEvento";
+	}
+	
+	@RequestMapping(value="/insertEvento", method=RequestMethod.POST)
 	public String form(Evento evento) {
-		er.save(evento);
-		return "redirect:/cadastrarEvento";
+		objetoRepository.save(evento);
+		return "redirect:/insertEvento";
+	}
+	
+	@RequestMapping("/listEvento")
+	public ModelAndView listarEventos() {
+		ModelAndView mv = new ModelAndView	("listEvento");
+		Iterable<Evento> eventos = objetoRepository.findAll();
+		mv.addObject("eventos", eventos);
+		return mv;
 	}
 }
