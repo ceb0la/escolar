@@ -14,9 +14,16 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository objetoRepository;
 	
+	//Mapeamento da pagina insertUsuario
 	@RequestMapping(value="/insertUsuario", method=RequestMethod.GET)
 	public String form() {
 		return "usuario/insertUsuario";
+	}
+
+	//Mapeamento da pagina listUsuario
+	@RequestMapping(value="listUsuario", method=RequestMethod.GET)
+	public String list() {
+		return "usuario/listUsuario";
 	}
 	
 	@RequestMapping(value="/insertUsuario", method=RequestMethod.POST)

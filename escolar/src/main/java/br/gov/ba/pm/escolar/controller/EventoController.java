@@ -15,11 +15,12 @@ public class EventoController {
 	@Autowired
 	private EventoRepository objetoRepository;
 	
+	//Mapeamento da pagina insertEvento
 	@RequestMapping(value="/insertEvento", method=RequestMethod.GET)
 	public String form() {
 		return "evento/insertEvento";
 	}
-	
+	//Mapeamento da pagina listEvento
 	@RequestMapping(value="/listEvento", method=RequestMethod.GET)
 	public String list() {
 		return "evento/listEvento";

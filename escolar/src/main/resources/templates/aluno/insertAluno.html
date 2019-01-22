@@ -80,7 +80,6 @@
 	</header>
 	<!-- Conteúdo -->
 	<main role="main" class="container">
-
 	
 	<form method="post">
 		<h1>Cadastro de Aluno</h1>
@@ -99,11 +98,36 @@
 				<input class="form-control"	type="text" value="" name="rua">
 			</div>
 			<div class="col">
-				Número: <input type="text" value="" name="numero"> 
-				Bairro: <input type="text" value="" name="bairro">
-				CEP: <input type="text" value="cep"> 
-				Ponto de Referência: <input	type="text" value="" name="pontoreferencia">
-			</div> 
+				<label for="labelBairroInput">Bairro:</label>
+				<input class="form-control"	type="text" value="" name="bairro">
+			</div>
+			<div class="col">
+				<label for="labelReferenciaoInput">Ponto de Referência:</label>
+				<input class="form-control"	type="text" value="" name="referencia">
+			</div>
+			<div class="col">
+				<label for="labelNumeroInput">Número:</label>
+				<input class="form-control"	type="number" value="" name="numero">
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="inputCity">Cidade:</label> 
+				<input type="text" class="form-control" id="inputCity">
+			</div>
+			<div class="form-group col-md-4">
+				<label for="inputEstado">Estado:</label> 
+				<select id="inputEstado" class="form-control">
+					<option selected>Selecione...</option>
+					<option>Bahia</option>
+				</select>
+			</div>
+			<div class="form-group col-md-2">
+				<label for="labelInputCEP">CEP:</label> 
+				<input type="text" class="form-control" id="cep">
+			</div>
+		</div>
+		
 		<button class="btn btn-primary mb-2" type="submit">Salvar</button>
 		<br>
 	</form>
