@@ -14,9 +14,16 @@ public class AlunoController {
 	@Autowired
 	private AlunoRepository objetoRepository;
 	
+	//Mapeamento da pagina insertAluno
 	@RequestMapping(value="/insertAluno", method=RequestMethod.GET)
 	public String form() {
 		return "aluno/insertAluno";
+	}
+	
+	//Mapeamento da pagina listAluno
+	@RequestMapping(value="listAluno", method=RequestMethod.GET)
+	public String list() {
+		return "aluno/listAluno";
 	}
 	
 	@RequestMapping(value="/insertAluno", method=RequestMethod.POST)

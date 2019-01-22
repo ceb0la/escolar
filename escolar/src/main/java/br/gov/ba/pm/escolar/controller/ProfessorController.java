@@ -14,11 +14,19 @@ public class ProfessorController {
 	@Autowired
 	private ProfessorRepository objetoRepository;
 	
+	////Mapeamento da pagina insertProfessor
 	@RequestMapping(value="/insertProfessor", method=RequestMethod.GET)
 	public String form() {
-		return "aluno/formProfessor";
+		return "professor/insertProfessor";
 	}
 	
+	//Mapeamento da pagina listProfessor
+	@RequestMapping(value="/listProfessor", method=RequestMethod.GET)
+	public String list() {
+		return "professor/listProfessor";
+	}
+	
+	//POST do formulario insertProfessor
 	@RequestMapping(value="/insertProfessor", method=RequestMethod.POST)
 	public String form(Professor professor) {
 		objetoRepository.save(professor);

@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
-	<!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sistema Escolar - Lista de Alunos</title>
 </head>
 <body>
+	<header>
+		<!-- Navegação -->
+		<nav class="blue lighten-1">
+			<div class="nav-wrapper lighten-2">
+				<a href="/escolar" class="brand-logo">Sistema Escolar</a>
+				<ul class="right hide-on-med-and-down">
+					<li><a class="waves-effect waves-light btn"><i
+							class="material-icons left">exit_to_app</i>Sair</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<!-- Conteúdo -->
+	<main>
 	<h1>Lista de Eventos</h1>
 	<table>
 		<thead>
@@ -28,18 +45,36 @@
 			<td>$evento.horario</td>
 		</tbody>
 	</table>
-	
+
 	<div th:each="evento : ${eventos}">
 		<div class="row">
-			<p><span th:text="$evento.id"></span></p>
-			<p><span th:text="$evento.nome"></span></p>
-			<p><span th:text="$evento.local"></span></p>
-			<p><span th:text="$evento.data"></span></p>
-			<p><span th:text="$evento.horario"></span></p>
+			<p>
+				<span th:text="$evento.id"></span>
+			</p>
+			<p>
+				<span th:text="$evento.nome"></span>
+			</p>
+			<p>
+				<span th:text="$evento.local"></span>
+			</p>
+			<p>
+				<span th:text="$evento.data"></span>
+			</p>
+			<p>
+				<span th:text="$evento.horario"></span>
+			</p>
 		</div>
 	</div>
-	
+	</main>
+	<!-- Footer -->
+	<footer class="page-footer gray darken-3">
+		<div class="footer-copyright">
+			<div class="container">
+				<p class="grey-text text-lighten-4 right">Sistema Escolar © 2019</p>
+			</div>
+		</div>
+	</footer>
 	<!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
 </html>
