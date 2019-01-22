@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<!--Import Google Icon Font-->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet" />
-<!--Import materialize.css-->
-<link type="text/css" rel="stylesheet"
-	href="materialize/css/materialize.min.css" media="screen,projection" />
-<!--Let browser know website is optimized for mobile-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/4.2.1/css/bootstrap.min.css">
+<!-- Custom styles for this template -->
+    <link rel="stylesheet" href="style/style.css">
+<!-- FavIcon -->	
+	<link rel="icon" href="../favicon.ico">
 
 <title>Sistema Escolar - Cadastro de Aluno</title>
 </head>
@@ -17,44 +18,109 @@
 <body>
 	<header>
 		<!-- Navegação -->
-		<nav class="blue lighten-1">
-			<div class="nav-wrapper lighten-2">
-				<a href="/escolar" class="brand-logo">Sistema Escolar</a>
-				<ul class="right hide-on-med-and-down">
-					<li><a class="waves-effect waves-light btn"><i
-							class="material-icons left">exit_to_app</i>Sair</a></li>
+		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#0378C5">
+			<a class="navbar-brand" href="/escolar">Sistema Escolar</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"	data-target="#navbarSupportedContent" 
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
+							aria-haspopup="true" aria-expanded="false">Eventos</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="insertEvento">Cadastrar</a> 
+							<a class="dropdown-item" href="listEvento">Listar</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a	class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
+							aria-haspopup="true" aria-expanded="false"> Alunos </a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="insertAluno">Cadastrar</a> 
+							<a class="dropdown-item" href="listAluno">Listar</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item disabled" href="#">Desabilitado</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
+							aria-haspopup="true" aria-expanded="false">Efetivo</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="insertProfessor">Cadastrar Professor</a> 
+							<a class="dropdown-item" href="listProfessor">Listar Professores</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item disabled" href="#">Cadastrar Funcionário</a> 
+							<a class="dropdown-item disabled" href="#">Listar Funcionários</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
+							aria-haspopup="true" aria-expanded="false">Configurações</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="insertUsuario">Cadastrar Usuário</a> 
+							<a class="dropdown-item" href="listUsuario">Listar Usuários</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item disabled" href="#">Cadastrar Permissões</a> 
+							<a class="dropdown-item disabled" href="#">Listar Permissões</a>
+						</div>
+					</li>
 				</ul>
+				<form class="form-inline my-2 my-lg-0">
+					<input class="form-control mr-sm-2" type="search" placeholder="buscar" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+				</form>
 			</div>
 		</nav>
 	</header>
 	<!-- Conteúdo -->
-	<main>
+	<main role="main" class="container">
 
 	
-	<form class="container" method="post">
+	<form method="post">
 		<h1>Cadastro de Aluno</h1>
-		Matricula: <input type="number" value="" name="matricula"> 
-		Nome: <input type="text" value="" name="nome"> 
-		Endereço <br> 
-		Rua: <input	type="text" value="" name="rua"> 
-		Número: <input type="text" value="" name="numero"> 
-		Bairro: <input type="text" value="" name="bairro">
-		CEP: <input type="text" value="cep"> 
-		Ponto de Referência: <input	type="text" value="" name="pontoreferencia"> 
-		<button class="waves-effect waves-light btn right" type="submit">Salvar</button>
+		<div class="form-group">
+			<label for="labelMatriculaInput">Matricula:</label> 
+			<input class="form-control" type="number" value="" name="matricula"> 
+		</div>
+		<div class="form-group">
+			<label for="labelNomeInput">Nome:</label>
+			<input class="form-control" type="text" value="" name="nome"> 
+		</div>
+		<h4>Endereço</h4>
+		<div class="form-row">
+			<div class="col">
+				<label for="labelRuaInput">Rua:</label>
+				<input class="form-control"	type="text" value="" name="rua">
+			</div>
+			<div class="col">
+				Número: <input type="text" value="" name="numero"> 
+				Bairro: <input type="text" value="" name="bairro">
+				CEP: <input type="text" value="cep"> 
+				Ponto de Referência: <input	type="text" value="" name="pontoreferencia">
+			</div> 
+		<button class="btn btn-primary mb-2" type="submit">Salvar</button>
 		<br>
 	</form>
 	
 	</main>
+	
 	<!-- Footer -->
-	<footer class="page-footer gray darken-3">
-		<div class="footer-copyright">
-			<div class="container">
-				<p class="grey-text text-lighten-4 right">Sistema Escolar © 2019</p>
-			</div>
-		</div>
-	</footer>
-	<!--JavaScript at end of body for optimized loading-->
-	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+	<footer class="footer bg-dark">
+      <div class="container">
+        <span class="text-light">2019 - Sistema Escolar</span>
+      </div>
+    </footer>
+
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="bootstrap/4.2.1/js/bootstrap.min.js" ></script>
 </body>
 </html>
