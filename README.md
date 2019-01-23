@@ -1,7 +1,7 @@
 # escolar
 Scholar System
 
- -Spring Root <br/>
+ -Spring Boot <br/>
  -Full-stack web development with Tomcat and Spring MVC <br/>
  -JPA( Java Persistence API including spring-data-jpa, spring-orm and Hibernate) <br/>
  -Spring Security <br/>
