@@ -41,7 +41,7 @@ public abstract class Pessoa implements Serializable{
 	
 	@Column
 	@Enumerated(EnumType.STRING)
-	private CivilMilitar civilMilitar;
+	private TipoServidor tipoServidor;
 	
 	@Column
 	@Enumerated(EnumType.STRING)
@@ -98,11 +98,11 @@ public abstract class Pessoa implements Serializable{
 	public void setEstadoCivil(EstadoCivil estadoCivil) {
 		this.estadoCivil = estadoCivil;
 	}
-	public CivilMilitar getCivilMilitar() {
-		return civilMilitar;
+	public TipoServidor getTipoServidor() {
+		return tipoServidor;
 	}
-	public void setCivilMilitar(CivilMilitar civilMilitar) {
-		this.civilMilitar = civilMilitar;
+	public void setTipoServidor(TipoServidor tipoServidor) {
+		this.tipoServidor = tipoServidor;
 	}
 	public Sexo getSexo() {
 		return sexo;

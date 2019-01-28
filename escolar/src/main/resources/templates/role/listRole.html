@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-<meta charset="utf-8">
 <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,8 +12,9 @@
 <!-- FavIcon -->	
 	<link rel="icon" href="../favicon.ico">
 
-<title>Sistema Escolar</title>
+<title>Sistema Escolar - Lista de Permissões</title>
 </head>
+
 <body>
 	<header>
 		<!-- Navegação -->
@@ -28,7 +28,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="/escolar">Home<span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
@@ -66,30 +66,41 @@
 							<a class="dropdown-item" href="insertUsuario">Cadastrar Usuário</a> 
 							<a class="dropdown-item" href="listUsuario">Listar Usuários</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="insertRole">Cadastrar Permissões</a> 
-							<a class="dropdown-item" href="listRole">Listar Permissões</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="insertUnidadeEscolar">Cadastrar Unidade Escolar</a> 
-							<a class="dropdown-item" href="listUnidadeEscolar">Listar Unidade Escolar</a>
+							<a class="dropdown-item disabled" href="insertRole">Cadastrar Permissões</a> 
+							<a class="dropdown-item disabled" href="listRole">Listar Permissões</a>
 						</div>
 					</li>
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit"> Pesquisar </button>
+					<input class="form-control mr-sm-2" type="search" placeholder="buscar" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
 				</form>
-				<a href="/escolar/logout" class="btn btn-danger" role="button" aria-pressed="true">Sair</a>
 			</div>
 		</nav>
 	</header>
-
+	
 	<!-- Conteúdo -->
 	<main role="main" class="container">
-
-	<h1 class="mt-5">Bem vindo ao Sistema Escolar</h1>
-
+	
+	<h1>Lista de Permissões</h1>
+	
+	<table class="table table-borderless">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Permissão</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="usuario : ${usuario}">
+				<td>${usuario.id}</td>
+				<td>${usuario.role}</td>
+			</tr>
+		</tbody>
+	</table>
+	
 	</main>
-
+	
 	<!-- Footer -->
 	<footer class="footer bg-dark">
       <div class="container">
