@@ -1,28 +1,76 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head th:include="layout :: head(title=~{::title},links=~{})">
-    <title>Please Login</title>
-  </head>
-  <body th:include="layout :: body" th:with="content=~{::content}">
-    <div th:fragment="content">
-        <form name="f" th:action="@{/login}" method="post">               
-            <fieldset>
-                <legend>Please Login</legend>
-                <div th:if="${param.error}" class="alert alert-error">    
-                    Invalid username and password.
-                </div>
-                <div th:if="${param.logout}" class="alert alert-success"> 
-                    You have been logged out.
-                </div>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username"/>        
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password"/>    
-                <div class="form-actions">
-                    <button type="submit" class="btn">Log in</button>
-                </div>
-            </fieldset>
-        </form>
-        //https://docs.spring.io/spring-security/site/docs/current/guides/html5/form-javaconfig.html
-    </div>
+<head>
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/4.2.1/css/bootstrap.min.css">
+<!-- Custom styles for this template -->
+    <link rel="stylesheet" href="style/style.css">
+<!-- FavIcon -->	
+	<link rel="icon" href="../favicon.ico">
+  
+    <title>Sistema Escola - Login</title>
+</head>
+<body>
+	<header>
+	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#0378C5">
+			<a class="navbar-brand" href="/escolar">Sistema Escolar</a>
+	</nav>
+	</header>
+	<main>
+	<div class="container">
+	<div class="row justify-content-center align-items-center" style="height:60vh">
+	<div class="col-4">
+	<div class="card">
+		<article class="card-body">
+			<h4 class="card-title text-center mb-4 mt-1">Fazer Login</h4>
+			<hr>
+			<p class="text-success text-center">Some message goes here</p>
+			<form name="f" th:action="@{/login}" method="post">
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"> <i class="fa fa-user"></i></span>
+						</div>
+						<input id="username" name="username" class="form-control" type="text">
+					</div>
+				<!-- input-group.// -->
+				</div>
+				<!-- form-group// -->
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+						</div>
+						<input class="form-control" type="password" id="password" name="password">
+					</div>
+					<!-- input-group.// -->
+				</div>
+				<!-- form-group// -->
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary btn-block">Entrar</button>
+				</div>
+				<!-- form-group// -->
+				<p class="text-center">
+					<a href="#" class="btn">Esqueceu a senha?</a>
+				</p>
+			</form>
+		</article>
+	<!-- card.// -->
+	</div>
+	</div>
+	</div>
+	</div>
+	</main>
+	<!-- Footer -->
+	<footer class="footer bg-dark">
+      <div class="container">
+        <span class="text-light">2019 - Sistema Escolar</span>
+      </div>
+    </footer>
+	<!--//https://docs.spring.io/spring-security/site/docs/current/guides/html5/form-javaconfig.html-->
   </body>
 </html>

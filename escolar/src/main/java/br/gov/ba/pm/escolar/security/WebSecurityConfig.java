@@ -17,20 +17,25 @@ import br.gov.ba.pm.escolar.service.ImplementsUserDetailsService;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
-	@Autowired
-	private ImplementsUserDetailsService userDetailsService;
-	
+	@Override
 	protected void configure(HttpSecurity http) throws Exception{
-		http.csrf().disable().authorizeRequests()
+		http.authorizeRequests().anyRequest().authenticated()
+		.and().formLogin().loginPage("/login").permitAll()
+		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));	
+		
+		/*http.csrf().disable().authorizeRequests()
 		.antMatchers(HttpMethod.GET,"/").permitAll()
-		.antMatchers(HttpMethod.GET,"/cadastrarEvento").hasRole("ADMIN")
-		.antMatchers(HttpMethod.POST,"/cadastrarEvento").hasRole("ADMIN")
-		.antMatchers(HttpMethod.GET,"/cadastrarUsuario").hasRole("ADMIN")
-		.antMatchers(HttpMethod.POST,"/cadastrarUsuario").hasRole("ADMIN")
+		.antMatchers(HttpMethod.GET,"/insertEvento").hasRole("ADMIN")
+		.antMatchers(HttpMethod.POST,"/insertEvento").hasRole("ADMIN")
+		.antMatchers(HttpMethod.GET,"/insertUsuario").hasRole("ADMIN")
+		.antMatchers(HttpMethod.POST,"/insertUsuario").hasRole("ADMIN")
 		.anyRequest().authenticated()
 		.and().formLogin().permitAll()
-		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));*/
 	}
+	
+	@Autowired
+	private ImplementsUserDetailsService userDetailsService;
 	
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
 		auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());

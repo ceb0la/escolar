@@ -1,62 +1,81 @@
-<header>
-		<!-- NavegaÁ„o -->
-		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#0378C5">
-			<a class="navbar-brand" href="/escolar">Sistema Escolar</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"	data-target="#navbarSupportedContent" 
-				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/4.2.1/css/bootstrap.min.css">
+<!-- Custom styles for this template -->
+    <link rel="stylesheet" href="style/style.css">
+<!-- FavIcon -->	
+	<link rel="icon" href="../favicon.ico">
 
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
-							aria-haspopup="true" aria-expanded="false">Eventos</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="insertEvento">Cadastrar</a> 
-							<a class="dropdown-item" href="listEvento">Listar</a>
-						</div>
-					</li>
-					<li class="nav-item dropdown">
-						<a	class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
-							aria-haspopup="true" aria-expanded="false"> Alunos </a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="insertAluno">Cadastrar</a> 
-							<a class="dropdown-item" href="listAluno">Listar</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item disabled" href="#">Desabilitado</a>
-						</div>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
-							aria-haspopup="true" aria-expanded="false">Efetivo</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="insertProfessor">Cadastrar Professor</a> 
-							<a class="dropdown-item" href="listProfessor">Listar Professores</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item disabled" href="#">Cadastrar Funcion·rio</a> 
-							<a class="dropdown-item disabled" href="#">Listar Funcion·rios</a>
-						</div>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
-							aria-haspopup="true" aria-expanded="false">ConfiguraÁıes</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="insertUsuario">Cadastrar Usu·rio</a> 
-							<a class="dropdown-item" href="listUsuario">Listar Usu·rios</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item disabled" href="#">Cadastrar Permissıes</a> 
-							<a class="dropdown-item disabled" href="#">Listar Permissıes</a>
-						</div>
-					</li>
-				</ul>
-				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search" placeholder="buscar" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-				</form>
-			</div>
-		</nav>
-	</header>
+</head>
+<body>
+	<header>
+			<!-- Navega√ß√£o -->
+			<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#0378C5">
+				<a class="navbar-brand" href="/escolar">Sistema Escolar</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"	data-target="#navbarSupportedContent" 
+					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+	
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
+								aria-haspopup="true" aria-expanded="false">Eventos</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="insertEvento">Cadastrar</a> 
+								<a class="dropdown-item" href="listEvento">Listar</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a	class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
+								aria-haspopup="true" aria-expanded="false"> Alunos </a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="insertAluno">Cadastrar</a> 
+								<a class="dropdown-item" href="listAluno">Listar</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item disabled" href="#">Desabilitado</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
+								aria-haspopup="true" aria-expanded="false">Efetivo</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="insertProfessor">Cadastrar Professor</a> 
+								<a class="dropdown-item" href="listProfessor">Listar Professores</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item disabled" href="#">Cadastrar Funcion√°rio</a> 
+								<a class="dropdown-item disabled" href="#">Listar Funcion√°rios</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
+								aria-haspopup="true" aria-expanded="false">Configura√ß√µes</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="insertUsuario">Cadastrar Usu√°rio</a> 
+								<a class="dropdown-item" href="listUsuario">Listar Usu√°rios</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item disabled" href="#">Cadastrar Permiss√µes</a> 
+								<a class="dropdown-item disabled" href="#">Listar Permiss√µes</a>
+							</div>
+						</li>
+					</ul>
+					<form class="form-inline my-2 my-lg-0">
+						<input class="form-control mr-sm-2" type="search" placeholder="buscar" aria-label="Search">
+						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+					</form>
+				</div>
+			</nav>
+		</header>
+	</body>
+</html>
