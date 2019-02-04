@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html 	xmlns:th="http://www.thymeleaf.org"
+    	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <meta charset="utf-8">
 <!-- Required meta tags -->
@@ -94,10 +95,10 @@
 		</thead>
 		<tbody>
 			<tr th:each="evento : ${eventos}">
-				<td><span th:text="${evento.id}"></span></td>
-				<td><span th:text="${evento.nome}"></span></td>
-				<td><span th:text="${evento.local}"></span></td>
-				<td><span th:text="${evento.datahora}"></span></td>
+				<td th:text="${evento.id}"></td>
+				<td th:text="${evento.nome}"></td>
+				<td th:text="${evento.local}"></td>
+				<td th:text="${evento.datahora}"></td>
 			</tr>
 		</tbody>
 	</table>

@@ -29,6 +29,8 @@ public class Usuario implements UserDetails{
 	
 	private String senha;
 	
+	private boolean ativo;
+	
 	@ManyToMany
 	@JoinTable(name="usuarios_roles",joinColumns = @JoinColumn(name= "usuario_id", referencedColumnName ="login"),inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role"))
 	private List<Role> roles;
@@ -63,6 +65,14 @@ public class Usuario implements UserDetails{
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 
 	public List<Role> getRoles() {

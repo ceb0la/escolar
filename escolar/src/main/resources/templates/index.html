@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html 	xmlns:th="http://www.thymeleaf.org"
+<html	xmlns:th="http://www.thymeleaf.org"
     	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
 <head>
@@ -91,7 +91,7 @@
 	<!-- Conteúdo -->
 	<main role="main" class="container">
 
-	<h1 class="mt-5">Bem vindo ao Sistema Escolar</h1>
+	<h1 class="mt-5"><span sec:autentication="principal.login"></span>, Bem vindo ao Sistema Escolar</h1>
 
 	</main>
 
