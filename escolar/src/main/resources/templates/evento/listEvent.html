@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:th="http://www.thymeleaf.org"
+    	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
 <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="bootstrap/4.2.1/css/bootstrap.min.css">
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+
 <!-- Custom styles for this template -->
     <link rel="stylesheet" href="style/style.css">
+
 <!-- FavIcon -->	
 	<link rel="icon" href="../favicon.ico">
-	<title>Sistema Escolar - Cadastro de Eventos Escolares</title>
+<title>Sistema Escolar - Lista de Eventos Escolares</title>
 </head>
-
 <body>
 	<header>
 		<!-- Navegação -->
@@ -77,29 +82,31 @@
 			</div>
 		</nav>
 	</header>
-	
 	<!-- Conteúdo -->
 	<main role="main" class="container">
-	<h1>Cadastro de Eventos Escolares</h1>
 
-	<form method="post">
-		<div class="form-group" >
-			<label for="labelNomeInput">Nome do Evento:</label> 
-			<input class="form-control" type="text" value="" name="nome"> 
-		</div>
-		<div class="form-group" >
-			<label for="labelLocalInput">Local:</label> 
-			<input class="form-control" type="text" value="" name="local">
-			
-			<label for="labelDataInput">Data:</label>
-			<input class="form-control" type="datetime-local" value="" name="datatime">
-						
-		</div>
-		<button class="btn btn-primary mb-2" type="submit">Salvar</button>
+	<h1>Lista de Eventos</h1>
 
-	</form>
+	<table class="table table-borderless">
+		<thead>
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">Nome</th>
+				<th scope="col">Local</th>
+				<th scope="col">Data</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="evento : ${eventos}">
+				<td th:text="${evento.id}"></td>
+				<td th:text="${evento.nome}"></td>
+				<td th:text="${evento.local}"></td>
+				<!-- <td th:text="${evento.datahora}"></td> -->
+			</tr>
+		</tbody>
+	</table>
 	</main>
-
+	
 	<!-- Footer -->
 	<footer class="footer bg-dark">
       <div class="container">
@@ -107,10 +114,8 @@
       </div>
     </footer>
 
-	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="bootstrap/4.2.1/js/bootstrap.min.js" ></script>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

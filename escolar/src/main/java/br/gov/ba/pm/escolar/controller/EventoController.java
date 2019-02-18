@@ -2,8 +2,8 @@ package br.gov.ba.pm.escolar.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.gov.ba.pm.escolar.model.Evento;
@@ -13,30 +13,30 @@ import br.gov.ba.pm.escolar.repository.EventoRepository;
 public class EventoController {
 	
 	@Autowired
-	private EventoRepository objetoRepository;
+	private EventoRepository eventos;
 	
-	//Mapeamento da pagina insertEvento
-	@RequestMapping(value="/insertEvento", method=RequestMethod.GET)
+	//When call "insertEvent/" return "event/insertEvent"
+	@GetMapping("/insertEvent")
 	public String form() {
-		return "evento/insertEvento";
+		return "evento/insertEvent";
 	}
-	//Mapeamento da pagina listEvento
-	@RequestMapping(value="/listEvento", method=RequestMethod.GET)
+	//When call "listEvent/" return "event/listEvent"
+	/*@GetMapping("/listEvent")
 	public String list() {
-		return "evento/listEvento";
+		return "evento/listEvent";
 	}
-	
-	@RequestMapping(value="/insertEvento", method=RequestMethod.POST)
-	public String form(Evento evento) {
-		objetoRepository.save(evento);
-		return "redirect:/insertEvento";
-	}
-	
-	@RequestMapping("/listEvento")
+	*/
+	@GetMapping("/listEvent")
 	public ModelAndView listarEventos() {
-		ModelAndView mv = new ModelAndView	("listEvento");
-		Iterable<Evento> eventos = objetoRepository.findAll();
-		mv.addObject("eventos", eventos);
+		ModelAndView mv = new ModelAndView	("evento/listEvent");
+		mv.addObject("eventos", eventos.findAll());
+		mv.addObject("evento", new Evento());
 		return mv;
+	}
+	
+	@PostMapping("/insertEvent")
+	public String form(Evento evento) {
+		eventos.save(evento);
+		return "redirect:/insertEvent";
 	}
 }

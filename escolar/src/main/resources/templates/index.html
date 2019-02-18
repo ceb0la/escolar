@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html	xmlns:th="http://www.thymeleaf.org"
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:th="http://www.thymeleaf.org"
      	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
 <head>
@@ -10,14 +11,16 @@
 <!-- Bootstrap CSS -->
 	<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
 	<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+	
 <!-- Icons Material -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
 <!-- Custom styles for this template -->
     <link rel="stylesheet" href="style/style.css">
 <!-- FavIcon -->	
 	<link rel="icon" href="../favicon.ico">
 
-<title>Sistema Escolar - Index</title>
+	<title>Sistema Escolar - Index</title>
 </head>
 <body>
 	<header>
@@ -38,8 +41,8 @@
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
 							aria-haspopup="true" aria-expanded="false">Eventos</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="insertEvento">Cadastrar</a> 
-							<a class="dropdown-item" href="listEvento">Listar</a>
+							<a class="dropdown-item" href="insertEvent">Cadastrar</a> 
+							<a class="dropdown-item" href="listEvent">Listar</a>
 						</div>
 					</li>
 					<li class="nav-item dropdown">
@@ -102,7 +105,6 @@
       </div>
     </footer>
 
-	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
