@@ -16,9 +16,9 @@ public class UnidadeEscolar implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	private Integer cnpj;
-	
 	private String nome;
+	
+	private Integer cnpj;
 	
 	public Long getId() {
 		return id;

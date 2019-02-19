@@ -2,8 +2,9 @@ package br.gov.ba.pm.escolar.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import br.gov.ba.pm.escolar.model.UnidadeEscolar;
 import br.gov.ba.pm.escolar.repository.UnidadeEscolarRepository;
@@ -12,24 +13,28 @@ import br.gov.ba.pm.escolar.repository.UnidadeEscolarRepository;
 public class UnidadeEscolarController {
 	
 	@Autowired
-	private UnidadeEscolarRepository objetoRepository;
+	private UnidadeEscolarRepository unidadesEscolares;
 	
 	//Mapeamento da pagina insertUnidadeEscolar
-	@RequestMapping(value="/insertUnidadeEscolar", method=RequestMethod.GET)
+	@GetMapping("/insertUnidadeEscolar")
 	public String form() {
 		return "unidadeEscolar/insertUnidadeEscolar";
 	}
+	
+	//Insert Unidade Escolar
+	@PostMapping("insertUnidadeEscolar")
+	public String form(UnidadeEscolar unidadeEscolar){
+		unidadesEscolares.save(unidadeEscolar);
+		return "redirect:/listUnidadeEscolar";
+	}
 
 	//Mapeamento da pagina listUnidadeEscolar
-	@RequestMapping(value="listUnidadeEscolar", method=RequestMethod.GET)
-	public String list() {
-		return "unidadeEscolar/listUnidadeEscolar";
+	@GetMapping("listUnidadeEscolar")
+	public ModelAndView listarUnidadeEscolar() {
+		ModelAndView mv = new ModelAndView("/unidadeEscolar/listUnidadeEscolar");
+		mv.addObject("unidadesEscolares", unidadesEscolares.findAll());
+		mv.addObject("unidadeEscolar", new UnidadeEscolar());
+		return mv;
 	}
 	
-	//Insert de Unidade Escolar
-	@RequestMapping(value="insertUnidadeEscolar", method=RequestMethod.POST)
-	public String form(UnidadeEscolar unidadeEscolar){
-		objetoRepository.save(unidadeEscolar);
-		return "redirect/insertUnidadeEscolar";
-	}
 }

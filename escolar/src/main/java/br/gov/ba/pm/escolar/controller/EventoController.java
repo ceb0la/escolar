@@ -20,12 +20,20 @@ public class EventoController {
 	public String form() {
 		return "evento/insertEvent";
 	}
+	
+	@PostMapping("/insertEvent")
+	public String form(Evento evento) {
+		eventos.save(evento);
+		return "redirect:/listEvent";
+	}
+	
 	//When call "listEvent/" return "event/listEvent"
 	/*@GetMapping("/listEvent")
 	public String list() {
 		return "evento/listEvent";
 	}
 	*/
+	
 	@GetMapping("/listEvent")
 	public ModelAndView listarEventos() {
 		ModelAndView mv = new ModelAndView	("evento/listEvent");
@@ -33,10 +41,5 @@ public class EventoController {
 		mv.addObject("evento", new Evento());
 		return mv;
 	}
-	
-	@PostMapping("/insertEvent")
-	public String form(Evento evento) {
-		eventos.save(evento);
-		return "redirect:/insertEvent";
-	}
+
 }

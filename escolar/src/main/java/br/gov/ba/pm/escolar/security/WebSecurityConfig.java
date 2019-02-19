@@ -19,16 +19,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http
+			.csrf().disable() //Habilita method Post, #issue verificar como configurar method Post
 			.authorizeRequests()
-				.antMatchers("/webjars/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()
-				.loginPage("/login")
+				.loginPage("/login") //free page login for everyone
 				.permitAll()
+				.and()
+			.rememberMe() // Habilita a função de "lembrar-me"
 				.and()
 			.logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll();	
+		
 		//.and().logout().logoutSuccessUrl("/login?logout").permitAll();
 		
 		/*http.csrf().disable().authorizeRequests()
@@ -50,7 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	}
 	
 	public void configure(WebSecurity web) throws Exception{
-		web.ignoring().antMatchers("/resources/**","/bootstrap/**","/style/**","/webjars/**");
+		web.ignoring().antMatchers("/style/**","/webjars/**");
 	}
 
 }

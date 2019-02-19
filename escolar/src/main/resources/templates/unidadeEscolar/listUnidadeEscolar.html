@@ -22,16 +22,16 @@
 	<table class="table table-borderless">
 		<thead>
 			<tr>
-				<th>Id</th>
-				<th>Unidade Escolar</th>
-				<th>CNPJ</th>
+				<th scope="col">Id</th>
+				<th scope="col">Unidade Escolar</th>
+				<th scope="col">CNPJ</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="unidadeEscolar : ${unidadesEscolares}">
-				<td>${unidadeEscola.id}</td>
-				<td>${unidadeEscolar.unidadeEscolar}</td>
-				<td>${unidadeEscolar.cnpj}</td>
+				<td th:text="${unidadeEscolar.id}"></td>
+				<td th:text="${unidadeEscolar.nome}"></td>
+				<td th:text="${unidadeEscolar.cnpj}"></td>
 			</tr>
 		</tbody>
 	</table>

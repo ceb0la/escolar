@@ -17,23 +17,23 @@
 	<!-- Conteúdo -->
 	<div layout:fragment="content">
 	
-	<h1>Cadastro de Unidades Escolares</h1>
-	
-	<form method="post">
-		<div class="form-group">
-			<label for="unidadeEscolarInput">Nome:</label> 
-			<input type="text" class="form-control" name="unidadeEscolar">
-		</div>
+		<h1>Cadastro de Unidades Escolares</h1>
 		
-		<div class="form-row">
-			<div class="form-group col-md-4">
-				<label for="cnpjInput">CNPJ:</label> 
-				<input type="number" class="form-control" name="cnpj">
+		<form method="post">
+			<div class="form-group">
+				<label for="unidadeEscolarInput">Nome:</label> 
+				<input class="form-control" name="nome" type="text" value=""/>
 			</div>
-		</div>
-
-		<button class="btn btn-primary mb-2" type="submit">Salvar</button>
-	</form>
+			
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label for="cnpjInput">CNPJ:</label> 
+					<input class="form-control" name="cnpj" type="text" value=""/>
+				</div>
+			</div>
+	
+			<button class="btn btn-primary mb-2" type="submit">Salvar</button>
+		</form>
 	</div>
 	
 </body>
