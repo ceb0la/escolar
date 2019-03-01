@@ -7,5 +7,5 @@ import br.gov.ba.pm.escolar.model.Evento;
 
 @Repository
 public interface EventoRepository extends CrudRepository<Evento, String>{
-
+	Evento findById(long id);
 }
