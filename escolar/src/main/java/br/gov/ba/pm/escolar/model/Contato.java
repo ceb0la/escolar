@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -12,22 +14,23 @@ public class Contato implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private Integer id;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	
 	@Column
 	private String email;
 	
 	@Column
-	private Integer telefoneResidencial;
+	private Integer telefone;
 	
 	@Column
 	private Integer celular;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -39,12 +42,12 @@ public class Contato implements Serializable{
 		this.email = email;
 	}
 
-	public Integer getTelefoneResidencial() {
-		return telefoneResidencial;
+	public Integer getTelefone() {
+		return telefone;
 	}
 
-	public void setTelefoneResidencial(Integer telefoneResidencial) {
-		this.telefoneResidencial = telefoneResidencial;
+	public void setTelefone(Integer telefone) {
+		this.telefone = telefone;
 	}
 
 	public Integer getCelular() {

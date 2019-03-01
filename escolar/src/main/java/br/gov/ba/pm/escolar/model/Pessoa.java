@@ -19,7 +19,7 @@ public abstract class Pessoa implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer id;
+	private Long id;
 	
 	@Column
 	private Integer cpf;
@@ -51,8 +51,14 @@ public abstract class Pessoa implements Serializable{
 	private Sexo sexo;
 	
 	@OneToOne
-	private Estado estadoEmissorRG;
+	private Estado estadoEmissorRG;	
 	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public Integer getCpf() {
 		return cpf;
 	}

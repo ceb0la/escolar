@@ -9,8 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class EstadoCivil implements Serializable{
-
+public class Escolaridade implements Serializable{
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -18,7 +18,7 @@ public class EstadoCivil implements Serializable{
 	private Long id;
 	
 	@Column
-	private String estadocivil;
+	private String escolaridade;
 
 	public Long getId() {
 		return id;
@@ -28,12 +28,12 @@ public class EstadoCivil implements Serializable{
 		this.id = id;
 	}
 
-	public String getEstadocivil() {
-		return estadocivil;
+	public String getEscolaridade() {
+		return escolaridade;
 	}
 
-	public void setEstadocivil(String estadocivil) {
-		this.estadocivil = estadocivil;
+	public void setEscolaridade(String escolaridade) {
+		this.escolaridade = escolaridade;
 	}
 	
 }
