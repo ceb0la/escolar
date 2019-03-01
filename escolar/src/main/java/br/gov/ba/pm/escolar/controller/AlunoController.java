@@ -2,6 +2,8 @@ package br.gov.ba.pm.escolar.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,12 +18,12 @@ public class AlunoController {
 	private AlunoRepository alunos;
 	
 	//Mapeamento da pagina insertAluno
-	@RequestMapping(value="/insertAluno", method=RequestMethod.GET)
+	@GetMapping("/insertAluno")
 	public String form() {
 		return "aluno/insertAluno";
 	}
 	
-	@RequestMapping(value="/insertAluno", method=RequestMethod.POST)
+	@PostMapping("/insertAluno")
 	public String form(Aluno aluno) {
 		alunos.save(aluno);
 		return "redirect:/insertAluno";
@@ -36,5 +38,4 @@ public class AlunoController {
 		return mv;
 	}
 	
-
 }

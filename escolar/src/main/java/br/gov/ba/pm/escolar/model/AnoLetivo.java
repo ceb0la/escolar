@@ -5,6 +5,8 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -13,7 +15,8 @@ public class AnoLetivo implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	private Integer id;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	
 	@Column
 	private Calendar ano;
@@ -28,13 +31,13 @@ public class AnoLetivo implements Serializable{
 	private Calendar fimAnoLetivo;
 	
 	@Column
-	private Integer qtdUnidades;
+	private Integer qtdModulos;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

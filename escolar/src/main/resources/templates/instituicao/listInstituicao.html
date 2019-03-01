@@ -8,29 +8,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="Content-Type" content="text/html;"/>
-
-	<title>Sistema Escolar - Lista de Eventos Escolares</title>
+	
+	<title>Sistema Escolar - Listar Instituições</title>
 </head>
-
 <body>
-	<!-- Conteúdo -->
+<!-- Conteúdo -->	
 	<div layout:fragment="content">
-		<h3>Lista de Eventos</h3>
+		<h3>Listar Instituições</h3>
+		
 		<table class="table table-hover">
 			<thead class="thead-light">
 				<tr>
 					<th scope="col">Id</th>
 					<th scope="col">Nome</th>
-					<th scope="col">Local</th>
-					<th scope="col">Data</th>
+					<th scope="col">Sigla</th>
+					<th scope="col">Diretor</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="evento : ${eventos}">
-					<td th:text="${evento.id}"></td>
-					<td><a th:href="${(#mvc.url('EC#detailsEventos').arg(0, evento.id)).build()}"><span th:text="${evento.nome}"></span></a></td>
-					<td th:text="${evento.local}"></td>
-					<!-- <td th:text="${evento.datahora}"></td> -->
+				<tr th:each="instituicao : ${instituicoes}">
+					<td th:text="${instituicao.id}"></td>
+					<td th:text="${instituicao.nome}"></td>
+					<td th:text="${instituicao.sigla}"></td>
+					<td th:text="${instituicao.diretor}"></td>
 				</tr>
 			</tbody>
 		</table>

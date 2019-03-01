@@ -16,10 +16,16 @@ public class Aluno extends Pessoa implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer id;
+	private Long id;
 	
 	@Column
 	private Integer matricula;
+	
+	@Column
+	private Integer codigoInep;
+	
+	@OneToOne
+	private Responsavel responsavel;
 	
 	@OneToOne
 	private Endereco endereco;
@@ -27,11 +33,11 @@ public class Aluno extends Pessoa implements Serializable{
 	@OneToOne
 	private Contato contato;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -57,6 +63,22 @@ public class Aluno extends Pessoa implements Serializable{
 
 	public void setContato(Contato contato) {
 		this.contato = contato;
+	}
+
+	public Integer getCodigoInep() {
+		return codigoInep;
+	}
+
+	public void setCodigoInep(Integer codigoInep) {
+		this.codigoInep = codigoInep;
+	}
+
+	public Responsavel getResponsavel() {
+		return responsavel;
+	}
+
+	public void setResponsavel(Responsavel responsavel) {
+		this.responsavel = responsavel;
 	}
 	
 }

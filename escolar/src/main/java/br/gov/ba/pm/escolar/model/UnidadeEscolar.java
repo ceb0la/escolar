@@ -18,6 +18,8 @@ public class UnidadeEscolar implements Serializable{
 	
 	private String nome;
 	
+	private String sigla;
+	
 	private Integer cnpj;
 	
 	public Long getId() {
@@ -28,20 +30,28 @@ public class UnidadeEscolar implements Serializable{
 		this.id = id;
 	}
 
-	public Integer getCnpj() {
-		return cnpj;
-	}
-
-	public void setCnpj(Integer cnpj) {
-		this.cnpj = cnpj;
-	}
-
 	public String getNome() {
 		return nome;
 	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
+	
+	public Integer getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(Integer cnpj) {
+		this.cnpj = cnpj;
 	}
 	
 }

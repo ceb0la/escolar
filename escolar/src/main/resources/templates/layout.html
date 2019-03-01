@@ -28,7 +28,7 @@
 	<header>
 		<!-- Navegação -->
 		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#0378C5">
-			<a class="navbar-brand" href="/">Sistema Escolar</a>
+			<a class="navbar-brand" href="/">Sistema </a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"	data-target="#navbarSupportedContent" 
 				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -36,15 +36,27 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
-							aria-haspopup="true" aria-expanded="false">Eventos</a>
+							aria-haspopup="true" aria-expanded="false">Escolar</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="insertEvent">Cadastrar</a> 
-							<a class="dropdown-item" href="listEvent">Listar</a>
+							<a class="dropdown-item" href="insertInstituicao">Cadastrar Instituição</a> 
+							<a class="dropdown-item" href="listInstituicao">Listar Instituição</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="insertUnidadeEscolar">Cadastrar Unidade Escolar</a> 
+							<a class="dropdown-item" href="listUnidadeEscolar">Listar Unidade Escolar</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="insertEvent">Cadastrar Eventos</a> 
+							<a class="dropdown-item" href="listEvent">Listar Eventos</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Cadastrar Ano Letivo</a> 
+							<a class="dropdown-item" href="#">Listar Ano Letivo</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Cadastrar Modulo</a> 
+							<a class="dropdown-item" href="#">Listar Modulo</a>
 						</div>
 					</li>
+					
 					<li class="nav-item dropdown">
 						<a	class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
 							aria-haspopup="true" aria-expanded="false"> Alunos </a>
@@ -53,6 +65,7 @@
 							<a class="dropdown-item" href="listAluno">Listar</a>
 						</div>
 					</li>
+					
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
 							aria-haspopup="true" aria-expanded="false">Efetivo</a>
@@ -60,28 +73,36 @@
 							<a class="dropdown-item" href="insertProfessor">Cadastrar Professor</a> 
 							<a class="dropdown-item" href="listProfessor">Listar Professores</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item disabled" href="#">Cadastrar Funcionário</a> 
-							<a class="dropdown-item disabled" href="#">Listar Funcionários</a>
+							<a class="dropdown-item" href="#">Cadastrar Funcionário</a> 
+							<a class="dropdown-item" href="#">Listar Funcionários</a>
 						</div>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
 							aria-haspopup="true" aria-expanded="false">Configurações</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">Cadastrar</a> 
+							<a class="dropdown-item" href="#">Listar</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Cadastrar</a> 
+							<a class="dropdown-item" href="#">Listar</a>
+						</div>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
+							aria-haspopup="true" aria-expanded="false">Administração</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="insertUsuario">Cadastrar Usuário</a> 
 							<a class="dropdown-item" href="listUsuario">Listar Usuários</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="insertRole">Cadastrar Permissões</a> 
 							<a class="dropdown-item" href="listRole">Listar Permissões</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="insertUnidadeEscolar">Cadastrar Unidade Escolar</a> 
-							<a class="dropdown-item" href="listUnidadeEscolar">Listar Unidade Escolar</a>
 						</div>
 					</li>
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
 					<input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar<i class="material-icons">search</i></button>
+					<button class="btn btn-success my-2 my-sm-0" type="submit">Pesquisar<i class="material-icons">search</i></button>
 				</form>
 				<a href="/logout" class="btn btn-danger" role="button" aria-pressed="true">Sair<i class="material-icons">exit_to_app</i></a>
 				

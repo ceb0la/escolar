@@ -2,14 +2,13 @@ package br.gov.ba.pm.escolar.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Estado implements Serializable{
+public class Responsavel implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -17,11 +16,11 @@ public class Estado implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Column
-	private String estado;
+	private String mae;
 	
-	@Column
-	private String sigla;
+	private String pai;
+	
+	private String responsavel;
 
 	public Long getId() {
 		return id;
@@ -31,20 +30,29 @@ public class Estado implements Serializable{
 		this.id = id;
 	}
 
-	public String getEstado() {
-		return estado;
+	public String getMae() {
+		return mae;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setMae(String mae) {
+		this.mae = mae;
 	}
 
-	public String getSigla() {
-		return sigla;
+	public String getPai() {
+		return pai;
 	}
 
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
+	public void setPai(String pai) {
+		this.pai = pai;
 	}
+
+	public String getResponsavel() {
+		return responsavel;
+	}
+
+	public void setResponsavel(String responsavel) {
+		this.responsavel = responsavel;
+	}
+	
 	
 }

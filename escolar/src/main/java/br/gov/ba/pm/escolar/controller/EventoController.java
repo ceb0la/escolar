@@ -27,13 +27,6 @@ public class EventoController {
 		return "redirect:/listEvent";
 	}
 	
-	//When call "listEvent/" return "event/listEvent"
-	/*@GetMapping("/listEvent")
-	public String list() {
-		return "evento/listEvent";
-	}
-	*/
-	
 	@GetMapping("/listEvent")
 	public ModelAndView listarEventos() {
 		ModelAndView mv = new ModelAndView	("evento/listEvent");
@@ -41,5 +34,12 @@ public class EventoController {
 		mv.addObject("evento", new Evento());
 		return mv;
 	}
+
+	//When call "listEvent/" return "event/listEvent"
+	/*@GetMapping("/listEvent")
+	public String list() {
+		return "evento/listEvent";
+	}
+	*/
 
 }
