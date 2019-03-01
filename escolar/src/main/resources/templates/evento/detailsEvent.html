@@ -9,21 +9,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="Content-Type" content="text/html;"/>
 
-	<title>Sistema Escolar - Lista de Eventos Escolares</title>
+	<title>Sistema Escolar - Evento Escolar</title>
 </head>
 
 <body>
 	<!-- Conteúdo -->
 	<div layout:fragment="content">
 	
-	<h1>Evento</h1>
+	<h3>Detalhes do Evento</h3>
 	
 		<div th:each="evento :${evento}" class="container">
 			<div class="row">
-				<p>Id: <span th:text="${evento.id}"></span></p>
-				<p>Nome: <span th:text="${evento.nome}"></span></p>
-				<p>Local: <span th:text="${evento.local}"></span></p>
-				<p>Data: <span th:text="${evento.data}"></span></p>
+				<p>Id: <span th:text="${evento.id}"></span> </p> <br/>
+				<p>Nome: <span th:text="${evento.nome}"></span> </p><br/>
+				<p>Local: <span th:text="${evento.local}"></span> </p><br/>
+				<p>Data: <span th:text="${evento.data}"></span> </p><br/>
 			</div>
 		</div>
 	
