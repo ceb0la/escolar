@@ -20,10 +20,12 @@
 	
 		<div th:each="evento :${evento}" class="container">
 			<div class="row">
-				<p>Id: <span th:text="${evento.id}"></span> </p> <br/>
-				<p>Nome: <span th:text="${evento.nome}"></span> </p><br/>
-				<p>Local: <span th:text="${evento.local}"></span> </p><br/>
-				<p>Data: <span th:text="${evento.data}"></span> </p><br/>
+				<div class="col-sm">
+					<p>Id: <span th:text="${evento.id}"></span> </p> 
+					<p>Nome: <span th:text="${evento.nome}"></span> </p>
+					<p>Local: <span th:text="${evento.local}"></span> </p>
+					<p>Data: <span th:text="${evento.data}"></span> </p>
+				</div>
 			</div>
 		</div>
 	
