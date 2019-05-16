@@ -2,6 +2,7 @@ package br.gov.ba.pm.escolar.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,14 +18,19 @@ public class Endereco implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
+	@Column
 	private String rua;
 	
+	@Column
 	private String bairro;
 	
+	@Column
 	private Integer numero;
 	
+	@Column
 	private Integer cep;
 	
+	@Column
 	private String pontoReferencia;
 	
 	@OneToOne

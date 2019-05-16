@@ -11,7 +11,7 @@ public class EscolarApplication {
 		SpringApplication.run(EscolarApplication.class, args);
 		
 		/*Criptografa uma senha para adicionar na tabela usuario
-		System.out.println(new BCryptPasswordEncoder().encode("123"));
+		System.out.println("Password:" + new BCryptPasswordEncoder().encode("123"));
 		*/
 	}
 }

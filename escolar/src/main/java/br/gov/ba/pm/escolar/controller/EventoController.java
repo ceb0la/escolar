@@ -17,38 +17,31 @@ public class EventoController {
 	@Autowired
 	private EventoRepository eventos;
 	
-	//When call "insertEvent/" return "event/insertEvent"
-	@GetMapping("/insertEvent")
+	//When call "/inserirEvento" return "event/inserirEvento"
+	@GetMapping("/inserirEvento")
 	public String form() {
-		return "evento/insertEvent";
+		return "evento/inserirEvento";
 	}
 	
-	@PostMapping("/insertEvent")
+	@PostMapping("/inserirEvento")
 	public String form(Evento evento) {
 		eventos.save(evento);
-		return "redirect:/listEvent";
+		return "redirect:/listarEvento";
 	}
 	
-	@GetMapping("/listEvent")
+	@GetMapping("/listarEvento")
 	public ModelAndView listarEventos() {
-		ModelAndView mv = new ModelAndView	("evento/listEvent");
+		ModelAndView mv = new ModelAndView	("evento/listarEvento");
 		mv.addObject("eventos", eventos.findAll());
 		mv.addObject("evento", new Evento());
 		return mv;
 	}
-
-	//When call "listEvent/" return "event/listEvent"
-	/*@GetMapping("/listEvent")
-	public String list() {
-		return "evento/listEvent";
-	}
-	*/
 	
 	//Search id for event and return all attributes
 	@RequestMapping("/{id}")
 	public ModelAndView detalhesEvento(@PathVariable("id")long id) {
 		Evento evento = eventos.findById(id);
-		ModelAndView mv = new ModelAndView	("evento/detailsEvent");
+		ModelAndView mv = new ModelAndView	("evento/detalharEvento");
 		mv.addObject("evento", evento);
 		return mv;
 	}

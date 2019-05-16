@@ -15,14 +15,14 @@ public class RoleController {
 	@Autowired
 	private RoleRepository roles;
 	
-	//Mapeamento da pagina insertRole
+	//When call "/insertRole" return "event/insertEvent"
 	@GetMapping("/insertRole")
 	public String form() {
 		return "role/insertRole";
 	}
 	
 	//Insert Role
-	@PostMapping("insertRole")
+	@PostMapping("/insertRole")
 	public String form(Role role) {
 		roles.save(role);
 		return "redirect:/listRole";

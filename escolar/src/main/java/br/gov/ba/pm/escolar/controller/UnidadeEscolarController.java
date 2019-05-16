@@ -16,22 +16,22 @@ public class UnidadeEscolarController {
 	private UnidadeEscolarRepository unidadesEscolares;
 	
 	//Mapeamento da pagina insertUnidadeEscolar
-	@GetMapping("/insertUnidadeEscolar")
+	@GetMapping("/inserirUnidadeEscolar")
 	public String form() {
-		return "unidadeEscolar/insertUnidadeEscolar";
+		return "unidadeEscolar/inserirUnidadeEscolar";
 	}
 	
 	//Insert Unidade Escolar
-	@PostMapping("insertUnidadeEscolar")
+	@PostMapping("/inserirUnidadeEscolar")
 	public String form(UnidadeEscolar unidadeEscolar){
 		unidadesEscolares.save(unidadeEscolar);
-		return "redirect:/listUnidadeEscolar";
+		return "redirect:/listarUnidadeEscolar";
 	}
 
 	//Mapeamento da pagina listUnidadeEscolar
-	@GetMapping("listUnidadeEscolar")
+	@GetMapping("/listarUnidadeEscolar")
 	public ModelAndView listarUnidadeEscolar() {
-		ModelAndView mv = new ModelAndView("/unidadeEscolar/listUnidadeEscolar");
+		ModelAndView mv = new ModelAndView("/unidadeEscolar/listarUnidadeEscolar");
 		mv.addObject("unidadesEscolares", unidadesEscolares.findAll());
 		mv.addObject("unidadeEscolar", new UnidadeEscolar());
 		return mv;

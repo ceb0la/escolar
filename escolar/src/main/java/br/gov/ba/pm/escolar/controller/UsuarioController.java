@@ -16,19 +16,19 @@ public class UsuarioController {
 	private UsuarioRepository usuarios;
 	
 	//Mapeamento da pagina insertUsuario
-	@GetMapping(value="/insertUsuario")
+	@GetMapping("/insertUsuario")
 	public String form() {
 		return "usuario/insertUsuario";
 	}
 	
-	@PostMapping(value="/insertUsuario")
+	@PostMapping("/insertUsuario")
 	public String form(Usuario usuario) {
 		usuarios.save(usuario);
-		return "redirect:/insertUsuario";
+		return "redirect:/listUsuario";
 	}
 	
 	//Mapeamento da pagina listUsuario
-	@GetMapping(value="listUsuario")
+	@GetMapping("/listUsuario")
 	public ModelAndView listarUsuarios() {
 		ModelAndView mv = new ModelAndView("/usuario/listUsuario");
 		mv.addObject("usuarios", usuarios.findAll());

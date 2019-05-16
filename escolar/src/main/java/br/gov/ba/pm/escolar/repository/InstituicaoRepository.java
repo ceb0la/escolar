@@ -7,5 +7,5 @@ import br.gov.ba.pm.escolar.model.Instituicao;
 
 @Repository
 public interface InstituicaoRepository extends CrudRepository<Instituicao, String> {
-
+	Instituicao findById(long id);
 }

@@ -7,5 +7,5 @@ import br.gov.ba.pm.escolar.model.UnidadeEscolar;
 
 @Repository
 public interface UnidadeEscolarRepository extends CrudRepository<UnidadeEscolar, String>{
-
+	UnidadeEscolar findById(long id);
 }

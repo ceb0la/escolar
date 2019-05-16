@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 @Entity
 public class UnidadeEscolar implements Serializable{
@@ -20,7 +21,8 @@ public class UnidadeEscolar implements Serializable{
 	
 	private String sigla;
 	
-	private Integer cnpj;
+	@Size(min=14,max=14, message="CNPJ inválido")
+	private Long cnpj;
 	
 	public Long getId() {
 		return id;
@@ -46,11 +48,11 @@ public class UnidadeEscolar implements Serializable{
 		this.sigla = sigla;
 	}
 	
-	public Integer getCnpj() {
+	public Long getCnpj() {
 		return cnpj;
 	}
 
-	public void setCnpj(Integer cnpj) {
+	public void setCnpj(Long cnpj) {
 		this.cnpj = cnpj;
 	}
 	
