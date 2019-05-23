@@ -2,11 +2,11 @@ package br.gov.ba.pm.escolar.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Size;
 
 @Entity
 public class UnidadeEscolar implements Serializable{
@@ -21,7 +21,7 @@ public class UnidadeEscolar implements Serializable{
 	
 	private String sigla;
 	
-	@Size(min=14,max=14, message="CNPJ inválido")
+	@Column(length=14)
 	private Long cnpj;
 	
 	public Long getId() {

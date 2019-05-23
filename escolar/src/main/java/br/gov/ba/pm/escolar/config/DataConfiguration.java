@@ -1,4 +1,4 @@
-package br.gov.ba.pm.escolar;
+package br.gov.ba.pm.escolar.config;
 
 import javax.sql.DataSource;
 

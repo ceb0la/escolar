@@ -1,7 +1,8 @@
-package br.gov.ba.pm.escolar.security;
+package br.gov.ba.pm.escolar.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -14,46 +15,45 @@ import br.gov.ba.pm.escolar.service.ImplementsUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
+public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http
-			.csrf().disable() //Habilita method Post, #issue verificar como configurar method Post
+			//.csrf().disable() //Habilita method Post, #issue verificar como configurar method Post
 			.authorizeRequests()
+				.antMatchers("/style/**").permitAll() //deve ficar primeiro que anyrequest
 				.anyRequest().authenticated()
+				.antMatchers("/aluno/**").hasRole("ADMIN")
+				.antMatchers("/professor/**").hasRole("ADMIN")
+				.antMatchers("/role/**").hasRole("ADMIN")
+				.antMatchers("/instituicao/**").hasRole("ADMIN")
+				.antMatchers("/unidadeEscolar/**").hasRole("ADMIN")
+				//.antMatchers("/usuario/**").hasRole("ADMIN")
+				.antMatchers(HttpMethod.GET,"/usuario/**").hasRole("ADMIN")
+				.antMatchers(HttpMethod.POST,"/usuario/insertUsuario").hasRole("ADMIN")
 				.and()
 			.formLogin()
-				.loginPage("/login") //free page login for everyone
-				.permitAll()
+				.loginPage("/login").permitAll() //free page login for everyone
 				.and()
 			.rememberMe() // Habilita a função de "lembrar-me"
 				.and()
 			.logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll();	
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll()
+				.and()
+			.httpBasic();
 		
-		//.and().logout().logoutSuccessUrl("/login?logout").permitAll();
-		
-		/*http.csrf().disable().authorizeRequests()
-		.antMatchers(HttpMethod.GET,"/").permitAll()
-		.antMatchers(HttpMethod.GET,"/insertEvento").hasRole("ADMIN")
-		.antMatchers(HttpMethod.POST,"/insertEvento").hasRole("ADMIN")
-		.antMatchers(HttpMethod.GET,"/insertUsuario").hasRole("ADMIN")
-		.antMatchers(HttpMethod.POST,"/insertUsuario").hasRole("ADMIN")
-		.anyRequest().authenticated()
-		.and().formLogin().permitAll()
-		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));*/
 	}
-	
-	@Autowired
-	private ImplementsUserDetailsService userDetailsService;
 	
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
 		auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
 	}
 	
 	public void configure(WebSecurity web) throws Exception{
-		web.ignoring().antMatchers("/style/**","/webjars/**");
+		web.ignoring().antMatchers("/webjars/**");
 	}
+	
+	@Autowired
+	private ImplementsUserDetailsService userDetailsService;
 
 }

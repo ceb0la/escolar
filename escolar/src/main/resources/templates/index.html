@@ -2,6 +2,7 @@
 <html
 	xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
 	layout:decorate="~{layout}" >
 <head>
 <!-- Required meta tags -->
@@ -9,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="Content-Type" content="text/html;"/>
 	
-	<title>Sistema Escolar - Index</title>
 </head>
 <body>
 	
@@ -17,6 +17,16 @@
 	<div layout:fragment="content">
 		<div class="page-header">
 			<h2>Bem vindo!</h2>
+			<b><c:out value="${pageContext.request.remoteUser}"/></b>
+			<div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">		
+            	Usuário: <span sec:authentication="name"></span> |					
+            	Permissão: <span sec:authentication="principal.authorities"></span>
+            	<br/>
+            	<sec:authorize access="hasRole('ADMIN')">
+				This content will only be visible to users who have the "admin" authority in their list of <tt>GrantedAuthority</tt>s.
+				</sec:authorize>				
+        	</div>
+        
 		</div>
 	</div>
 
