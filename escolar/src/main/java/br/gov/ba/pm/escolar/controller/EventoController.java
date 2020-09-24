@@ -12,12 +12,13 @@ import br.gov.ba.pm.escolar.model.Evento;
 import br.gov.ba.pm.escolar.repository.EventoRepository;
 
 @Controller
+@RequestMapping("evento")
 public class EventoController {
 	
 	@Autowired
 	private EventoRepository eventos;
 	
-	//When call "/inserirEvento" return "event/inserirEvento"
+	//When call "/inserirEvento" return "evento/inserirEvento"
 	@GetMapping("/inserirEvento")
 	public String form() {
 		return "evento/inserirEvento";

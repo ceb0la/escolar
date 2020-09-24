@@ -12,6 +12,7 @@ import br.gov.ba.pm.escolar.model.Aluno;
 import br.gov.ba.pm.escolar.repository.AlunoRepository;
 
 @Controller
+@RequestMapping("aluno")
 public class AlunoController {
 	
 	@Autowired

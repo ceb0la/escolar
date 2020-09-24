@@ -12,6 +12,7 @@ import br.gov.ba.pm.escolar.model.Instituicao;
 import br.gov.ba.pm.escolar.repository.InstituicaoRepository;
 
 @Controller
+@RequestMapping("instituicao")
 public class InstituicaoController {
 	
 	@Autowired
@@ -36,12 +37,12 @@ public class InstituicaoController {
 		return mv;
 	}
 	
-	/*//Search id for instituicao and return all attributes
-		@RequestMapping("/{id2}")
-		public ModelAndView detalhesInstituicao(@PathVariable("id2")long id) {
-			Instituicao instituicao = instituicoes.findById(id);
-			ModelAndView mv = new ModelAndView	("instituicao/detalharInstituicao");
-			mv.addObject("instituicao", instituicao);
-			return mv;
-		}*/
+	//Search id for instituicao and return all attributes
+	@RequestMapping("/{id}")
+	public ModelAndView detalhesInstituicao(@PathVariable("id")long id) {
+		Instituicao instituicao = instituicoes.findById(id);
+		ModelAndView mv = new ModelAndView	("instituicao/detalharInstituicao");
+		mv.addObject("instituicao", instituicao);
+		return mv;
+	}
 }

@@ -8,11 +8,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="Content-Type" content="text/html;"/>
-	
-	<title>Sistema Escolar - Listar Instituições</title>
 </head>
+
 <body>
-<!-- Conteúdo -->	
+	<!-- Conteúdo -->	
 	<div layout:fragment="content">
 		<h3>Listar Instituições</h3>
 		
@@ -28,7 +27,7 @@
 			<tbody>
 				<tr th:each="instituicao : ${instituicoes}">
 					<td th:text="${instituicao.id}"></td>
-					<td><a th:href="${(#mvc.url('EC#detalhesInstituicao').arg(0, instituicao.id)).build()}"><span th:text="${instituicao.nome}"></span></a></td>
+					<!-- <td><a th:href="${(#mvc.url('EC#detalhesInstituicao').arg(0, instituicao.id)).build()}"><span th:text="${instituicao.nome}"></span></a></td> -->
 					<td th:text="${instituicao.nome}"></td>
 					<td th:text="${instituicao.sigla}"></td>
 					<td th:text="${instituicao.diretor}"></td>
