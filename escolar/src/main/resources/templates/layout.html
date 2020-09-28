@@ -16,10 +16,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
 	<!-- Custom styles for this template -->
-    <link href="style/style.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
 
 	<!-- FavIcon -->	
-	<link rel="icon" href="image/book.ico">
+	<link rel="icon" th:href="@{/image/book.ico}">
 
 	<title>Sistema Escolar</title>
 </head>
@@ -28,7 +28,7 @@
 	<header>
 		<!-- Navegação -->
 		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#0378C5">
-			<a class="navbar-brand" href="/">Sistema </a>
+			<a class="navbar-brand" th:href="@{/}">Sistema </a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"	data-target="#navbarSupportedContent" 
 				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -40,14 +40,14 @@
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
 							aria-haspopup="true" aria-expanded="false">Escolar</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="instituicao/inserirInstituicao">Cadastrar Instituição</a> 
-							<a class="dropdown-item" href="instituicao/listarInstituicao">Listar Instituição</a>
+							<a class="dropdown-item" th:href="@{/instituicao/inserirInstituicao}">Cadastrar Instituição</a>							
+							<a class="dropdown-item" th:href="@{/instituicao/listarInstituicao}">Listar Instituição</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="unidadeescolar/inserirUnidadeEscolar">Cadastrar Unidade Escolar</a> 
-							<a class="dropdown-item" href="unidadeescolar/listarUnidadeEscolar">Listar Unidade Escolar</a>
+							<a class="dropdown-item" th:href="@{/unidadeescolar/inserirUnidadeEscolar}">Cadastrar Unidade Escolar</a> 
+							<a class="dropdown-item" th:href="@{/unidadeescolar/listarUnidadeEscolar}">Listar Unidade Escolar</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="evento/inserirEvento">Cadastrar Eventos</a> 
-							<a class="dropdown-item" href="evento/listarEvento">Listar Eventos</a>
+							<a class="dropdown-item" th:href="@{/evento/inserirEvento}">Cadastrar Eventos</a> 
+							<a class="dropdown-item" th:href="@{/evento/listarEvento}">Listar Eventos</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#">Cadastrar Ano Letivo</a> 
 							<a class="dropdown-item" href="#">Listar Ano Letivo</a>
@@ -61,8 +61,8 @@
 						<a	class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
 							aria-haspopup="true" aria-expanded="false"> Alunos </a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="aluno/insertAluno">Cadastrar</a> 
-							<a class="dropdown-item" href="aluno/listAluno">Listar</a>
+							<a class="dropdown-item" th:href="@{/aluno/insertAluno}">Cadastrar</a> 
+							<a class="dropdown-item" th:href="@{/aluno/listAluno}">Listar</a>
 						</div>
 					</li>
 					
@@ -70,8 +70,8 @@
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
 							aria-haspopup="true" aria-expanded="false">Efetivo</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="professor/insertProfessor">Cadastrar Professor</a> 
-							<a class="dropdown-item" href="professor/listProfessor">Listar Professores</a>
+							<a class="dropdown-item" th:href="@{/professor/insertProfessor}">Cadastrar Professor</a> 
+							<a class="dropdown-item" th:href="@{/professor/listProfessor}">Listar Professores</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#">Cadastrar Funcionário</a> 
 							<a class="dropdown-item" href="#">Listar Funcionários</a>
@@ -92,11 +92,11 @@
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
 							aria-haspopup="true" aria-expanded="false">Administração</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="usuario/insertUsuario">Cadastrar Usuário</a> 
-							<a class="dropdown-item" href="usuario/listUsuario">Listar Usuários</a>
+							<a class="dropdown-item" th:href="@{/usuario/insertUsuario}">Cadastrar Usuário</a> 
+							<a class="dropdown-item" th:href="@{/usuario/listUsuario}">Listar Usuários</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="role/insertRole">Cadastrar Permissões</a> 
-							<a class="dropdown-item" href="role/listRole">Listar Permissões</a>
+							<a class="dropdown-item" th:href="@{/role/insertRole}">Cadastrar Permissões</a> 
+							<a class="dropdown-item" th:href="@{/role/listRole}">Listar Permissões</a>
 						</div>
 					</li>
 				</ul>
@@ -121,6 +121,7 @@
 		    <div layout:fragment="content">Conteúdo das páginas filhas.</div>	
 		</div>
 	</main>
+	
 	<!-- Footer -->
 	<footer class="footer bg-dark">
       <div class="container">
