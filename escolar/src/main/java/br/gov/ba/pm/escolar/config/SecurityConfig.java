@@ -22,26 +22,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests()
 			//.csrf().disable() //Habilita method Post, #issue verificar como configurar method Post			
 			.antMatchers("/webjars/**", "/css/**", "/image/**", "/js/**").permitAll()				
-			.anyRequest().authenticated()
-			.antMatchers("/aluno/**").hasRole("ADMIN")
-			.antMatchers("/professor/**").hasRole("ADMIN")
-			.antMatchers("/role/**").hasRole("ADMIN")
-			.antMatchers("/instituicao/**").hasRole("ADMIN")
-			.antMatchers("/unidadeEscolar/**").hasRole("ADMIN")
-			//.antMatchers("/usuario/**").hasRole("ADMIN")
+			.anyRequest().authenticated()																		
 			.antMatchers(HttpMethod.GET,"/usuario/**").hasRole("ADMIN")
 			.antMatchers(HttpMethod.POST,"/usuario/insertUsuario").hasRole("ADMIN")
+			
 			.and()
-			.formLogin()
-				.loginPage("/login").permitAll() //free page login for everyone
-				.defaultSuccessUrl("/", true)
-				.and()
-			.rememberMe() // Habilita a função de "lembrar-me"
-				.and()
-			.logout()
+				.formLogin()
+					.loginPage("/login").permitAll() //free page login for everyone
+					.defaultSuccessUrl("/", true)
+			.and()
+				.rememberMe() // Habilita a função de "lembrar-me"
+			.and()
+				.logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).permitAll()
-				.and()
-			.httpBasic();
+			.and()
+				.httpBasic();
 		
 	}
 	

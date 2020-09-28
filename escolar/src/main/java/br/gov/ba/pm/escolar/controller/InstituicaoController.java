@@ -26,7 +26,7 @@ public class InstituicaoController {
 	@PostMapping("/inserirInstituicao")
 	public String postInsert(Instituicao instituicao) {
 		instituicoes.save(instituicao);
-		return "redirect:/listarInstituicao";
+		return "redirect:/instituicao/listarInstituicao";
 	}
 	
 	@GetMapping("/listarInstituicao")
